@@ -1,0 +1,9 @@
+diff a/src/view/notifications/notifications.vue b/src/view/notifications/notifications.vue	(rejected hunks)
+@@ -0,6 +0,7 @@
+ </template>
+ 
+ <script>
++export default {
+     name: 'notifications',
+     data() {
+         return {
