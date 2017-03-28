@@ -1,0 +1,33 @@
+.clearfix
+	display inline-block
+	&:after
+		content ''
+		height 0
+		line-height 0
+		clear both
+		visibility hidden
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)
+	.border-1px
+		&::after
+			transform scaleY(.7)
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+	.border-1px
+		&::after
+			transform scaleY(.5)
+
+border-1px($color)
+	position relative
+	&:after
+		content ''
+		display block
+		position absolute
+		left 0px
+		bottom 0px
+		width 100%
+		border-top 1px solid $color
+
+bg-img($url)
+	background-image url($url + "@2x.png")
+	@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+		background-image url($url + "@3x.png")
