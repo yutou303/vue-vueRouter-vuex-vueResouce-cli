@@ -11,5 +11,11 @@ export default {
     },
     delTotalNum({ commit }) {
         commit(types.DEL_TOTAL_NUM, 1);
+    },
+    showFooterNav({ commit }) {
+        commit(types.SHOW_FOOTER_NAV);
+    },
+    hideFooterNav({ commit }) {
+        commit(types.HIDE_FOOTER_NAV);
     }
 };

@@ -1,42 +1,48 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/view/home/home';
-import My from '@/view/my/my';
-import Notifications from '@/view/notifications/notifications';
-import Orders from '@/view/orders/orders';
-import Services from '@/view/services/services';
+import home from '@/view/home/index/index.vue';
+import member from '@/view/member/index/index.vue';
+import msg from '@/view/msg/index/index.vue';
+import trade from '@/view/trade/index/index.vue';
+import tradeInfo from '@/view/trade/info/info.vue';
+import service from '@/view/service/index/index.vue';
 
 Vue.use(Router);
 
 export default new Router({
-  // mode: 'history',
+  mode: 'history',
   linkActiveClass: 'active',
   base: __dirname,
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      name: 'home',
+      component: home
     },
     {
-      path: '/orders',
-      name: 'Orders',
-      component: Orders
+      path: '/trade',
+      name: 'trade',
+      component: trade
     },
     {
-      path: '/services',
-      name: 'Services',
-      component: Services
+      path: '/trade/:id',
+      name: 'tradeInfo',
+      component: tradeInfo
     },
     {
-      path: '/notifications',
-      name: 'Notifications',
-      component: Notifications
+      path: '/service',
+      name: 'service',
+      component: service
     },
     {
-      path: '/my',
-      name: 'My',
-      component: My
+      path: '/msg',
+      name: 'msg',
+      component: msg
+    },
+    {
+      path: '/member',
+      name: 'member',
+      component: member
     }
   ]
 });

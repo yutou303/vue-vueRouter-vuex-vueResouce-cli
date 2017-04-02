@@ -7,12 +7,14 @@
         </keep-alive>
       </transition>
     </div>
-    <vfooter></vfooter>
+    <vfooter v-show="footerNavShow"></vfooter>
   </div>
 </template>
 
 <script>
 import vfooter from './components/vfooter/vfooter';
+
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'app',
@@ -21,6 +23,12 @@ export default {
       transitionName: 'pop-in'
     };
   },
+  computed: {
+    // 使用对象展开运算符将 getters 混入 computed 对象中
+    ...mapGetters([
+      'footerNavShow'
+    ])
+  },
   components: {
     vfooter
   },
@@ -28,27 +36,26 @@ export default {
     '$route'(to, from) {
       const toDepth = to.path.split('/').length;
       const fromDepth = from.path.split('/').length;
-      console.log(window.history.length);
+      // console.log(to.path.split('/'), from.path.split('/'));
       this.transitionName = toDepth < fromDepth ? 'pop-out' : 'pop-in';
+      if (toDepth > 2) {
+        this.$store.dispatch('hideFooterNav');
+      } else {
+        this.$store.dispatch('showFooterNav');
+      }
     }
   }
 };
 </script>
 
 <style lang="stylus">
-  @import './common/stylus/variables.styl';
   #app
-    font-family: font-family-default
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    text-align: center
-    color: #2c3e50
-    margin-top: 60px
     .container
-      height: 100px
+      height: 400px
+
     .router-view {
       width: 100%;
-      animation-duration: 0.8s;
+      animation-duration: 0.5s;
       animation-fill-mode: both;
       backface-visibility: hidden;
     }

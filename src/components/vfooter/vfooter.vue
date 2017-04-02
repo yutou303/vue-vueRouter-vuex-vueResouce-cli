@@ -10,14 +10,14 @@
                 </a>
             </router-link>
             <router-link tag="li"
-                         to="/orders">
+                         to="/trade">
                 <a>
                     <i class="icon"></i>
                     <span>订单</span>
                 </a>
             </router-link>
             <router-link tag="li"
-                         to="/services"
+                         to="/service"
                          exact>
                 <a>
                     <i class="icon"></i>
@@ -25,25 +25,25 @@
                 </a>
             </router-link>
             <router-link tag="li"
-                         to="/notifications">
+                         to="/msg">
                 <a>
                     <i class="icon"></i>
                     <span>消息</span>
                 </a>
             </router-link>
             <router-link tag="li"
-                         to="/my">
+                         to="/member">
                 <a>
                     <i class="icon"></i>
                     <span>我的</span>
                 </a>
             </router-link>
-            <li @click="goBack">
-                <a>
-                    <i class="icon"></i>
-                    <span>返回</span>
-                </a>
-            </li>
+            <!--<li @click="goBack">
+                                                <a>
+                                                    <i class="icon"></i>
+                                                    <span>返回</span>
+                                                </a>
+                                            </li>-->
         </ul>
     </nav>
 </template>
@@ -52,9 +52,9 @@
 export default {
     name: 'vfooter',
     methods: {
-        goBack() {
-            this.$router.go(-1);
-        }
+        // goBack() {
+        //     this.$router.go(-1);
+        // }
     }
 };
 </script>
